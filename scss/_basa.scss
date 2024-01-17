@@ -1,0 +1,136 @@
+@use 'sass:math';
+@import "_mixins.scss";
+
+
+$fontFamily: "Inter", serif;
+$fontSize: toRem(18); // где 18(px) - размер шрифта по умолчанию из макета
+
+// Основные цвета
+$colorWhite: #fff;
+$colorBlue: #5B7FFF;
+$colorRed: #FC3448;
+$bgColor: linear-gradient(198deg, rgba(201, 232, 255, 0.40) 14.55%, rgba(240, 211, 255, 0.40) 58.14%, rgba(239, 224, 170, 0.40) 99.26%);
+
+
+
+// Настройки адаптивной сетки ===============================================================================================================================================================================================================================================================================================
+
+// Минимальная ширина страницы
+$minWidth: 320;
+// Ширина полотна (макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 864;
+// Общий отступ у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+
+// Ширина срабатывания первого брейкпоинта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поинты
+$pc: toEm($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: toEm(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: toEm(767.98); // Телефоны L
+$mobileSmall: toEm(479.98); // Телефоны S
+
+
+// базові налаштування
+body {
+	font-family: $fontFamily;
+	font-size: $fontSize;
+	
+}
+
+
+
+
+// базові налаштування
+
+
+.wrapper {
+    min-height: 100%;
+    overflow: clip;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper>main {
+    flex-grow: 1;
+}
+
+[class*=__container] {
+    max-width: toEm($containerWidth);
+	margin: 0 auto;
+    padding: 0 toRem(15);
+}
+
+
+
+// обнулення стилів
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+*::before,
+*::after {
+	display: inline-block;
+}
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: inherit;
+}
+li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+html,
+body {
+	line-height: 1;
+	height: 100%;
+}
+
+
+/* form */
+input,
+button,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+}
+textarea {
+	line-height: inherit;
+	resize: vertical;
+}
+
+a,
+button,
+select,
+option {
+	cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+	appearance: none;
+
+}
+
